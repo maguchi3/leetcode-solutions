@@ -1,3 +1,3 @@
-module github.com/maguro-world/leetcode/go
+module github.com/maguroid/leetcode/go
 
 go 1.17
