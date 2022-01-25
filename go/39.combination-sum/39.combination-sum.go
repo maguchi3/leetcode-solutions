@@ -13,31 +13,19 @@ import (
 func combinationSum(candidates []int, target int) [][]int {
 	sort.Ints(candidates)
 
-	ans := [][]int{}
+	ans, path := [][]int{}, []int{}
 
-	for s := 0; s < len(candidates); s++ {
-		var path []int
-
-		backTrack(candidates, target, s, path, &ans)
-	}
+	backTrack(candidates, target, 0, path, &ans)
 
 	return ans
 }
 
 func backTrack(candidates []int, rest int, pos int, path []int, ans *[][]int) {
-	if pos >= len(candidates) {
+	if rest < 0 {
 		return
 	}
 
-	cur := candidates[pos]
-
-	if rest < cur {
-		return
-	}
-
-	path = append(path, cur)
-
-	if rest == cur {
+	if rest == 0 {
 		// make deep-copy to avoid overriding
 		tmp := make([]int, len(path))
 		copy(tmp, path)
@@ -46,7 +34,12 @@ func backTrack(candidates []int, rest int, pos int, path []int, ans *[][]int) {
 	}
 
 	for i := pos; i < len(candidates); i++ {
+		cur := candidates[i]
+
+		path = append(path, cur)
 		backTrack(candidates, rest-cur, i, path, ans)
+		// back tracking
+		path = path[:len(path)-1]
 	}
 }
 
