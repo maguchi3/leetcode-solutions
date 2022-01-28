@@ -24,13 +24,16 @@ func TestMaxDepth(t *testing.T) {
 	}
 
 	for _, q := range qs {
-		got1, got2 := maxDepth(q.param), maxDepth2(q.param)
+		got1, got2, got3 := maxDepth(q.param), maxDepth2(q.param), maxDepth3(q.param)
 
 		if got1 != q.answer {
 			t.Errorf("\nexpected: %d \ngot: %d \n%v", q.answer, got1, q)
 		}
 		if got2 != q.answer {
 			t.Errorf("\nexpected: %d \ngot: %d \n%v", q.answer, got2, q)
+		}
+		if got3 != q.answer {
+			t.Errorf("\nexpected: %d \ngot: %d \n%v", q.answer, got3, q)
 		}
 	}
 }
@@ -58,5 +61,14 @@ func BenchmarkMaxDepth2(b *testing.B) {
 
 	for i := 0; i < b.N; i++ {
 		maxDepth2(param)
+	}
+}
+
+func BenchmarkMaxDepth3(b *testing.B) {
+	param := structures.IntsToTree(makeRange(1, 10000))
+	b.ResetTimer()
+
+	for i := 0; i < b.N; i++ {
+		maxDepth3(param)
 	}
 }

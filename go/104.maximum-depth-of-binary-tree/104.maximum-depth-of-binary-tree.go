@@ -68,3 +68,33 @@ func maxDepth2(root *TreeNode) int {
 
 	return lv
 }
+
+// iteration with queue(no package). faster than container/list
+func maxDepth3(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+
+	q := make([]*TreeNode, 1)
+	q[0] = root
+	lv := 0
+
+	for len(q) > 0 {
+		n := len(q)
+
+		for i := 0; i < n; i++ {
+			node := q[0]
+			q = q[1:]
+
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
+		}
+		lv++
+	}
+
+	return lv
+}
