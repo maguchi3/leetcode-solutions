@@ -10,6 +10,9 @@ const NULL = -1 << 63 // using express null node val
 
 func IntsToTree(ints []int) *TreeNode {
 	n := len(ints)
+	if n == 0 {
+		return nil
+	}
 	root := &TreeNode{Val: ints[0]}
 	q := make([]*TreeNode, 1, n)
 	q[0] = root
