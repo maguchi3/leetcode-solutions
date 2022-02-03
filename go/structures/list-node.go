@@ -30,3 +30,24 @@ func ListToInts(head *ListNode) []int {
 
 	return res
 }
+
+func CreateCycle(head *ListNode, pos int) *ListNode {
+	curPos, target := 0, new(ListNode)
+	tmp := head
+
+	// create Cycle
+	for head != nil {
+		if curPos == pos {
+			target = head
+		}
+		if head.Next == nil {
+			head.Next = target
+			break
+		}
+		head = head.Next
+		curPos++
+	}
+	head = tmp
+
+	return head
+}
