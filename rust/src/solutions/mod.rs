@@ -1,5 +1,6 @@
-mod s1_two_sum;
-mod s2_add_two_numbers;
-mod s3_longest_substring_without_repeating_characters;
-mod s6_zigzag_conversion;
-mod s8_string_to_integer_atoi;
+mod s0001_two_sum;
+mod s0002_add_two_numbers;
+mod s0003_longest_substring_without_repeating_characters;
+mod s0006_zigzag_conversion;
+mod s0008_string_to_integer_atoi;
+mod s0020_valid_parentheses;
