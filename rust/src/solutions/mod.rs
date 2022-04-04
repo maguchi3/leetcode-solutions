@@ -4,3 +4,4 @@ mod s0003_longest_substring_without_repeating_characters;
 mod s0006_zigzag_conversion;
 mod s0008_string_to_integer_atoi;
 mod s0020_valid_parentheses;
+mod s0022_generate_parentheses;
