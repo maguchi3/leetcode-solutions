@@ -5,3 +5,4 @@ mod s0006_zigzag_conversion;
 mod s0008_string_to_integer_atoi;
 mod s0020_valid_parentheses;
 mod s0022_generate_parentheses;
+mod s0031_next_permutation;
